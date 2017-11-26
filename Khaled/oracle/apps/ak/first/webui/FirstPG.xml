@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1305" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="PageLayoutRN" amDefName="instructor.oracle.apps.ak.first.server.FirstAM" windowTitle="First Page" title="FWK_TBX_ADDRESSES Query">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:query id="QueryRN" mode="resultsBasedSearch" dispSimple="true" dispCustomized="true" dispAdvanced="true">
+               <ui:contents>
+                  <oa:table id="ResultsRN" shortDesc="Addresses Table" width="100%" userCustomizable="true">
+                     <ui:contents>
+                        <oa:messageStyledText id="AddressId" dataType="NUMBER" prompt="AddressId" viewName="AddressVO1" viewAttr="AddressId" queryable="true" sortState="yes" initSortSeq="first" selectiveSearchCriteria="true" userCustomizable="true"/>
+                        <oa:messageTextInput id="AddressName" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxAddresses/AddressName" dataType="VARCHAR2" viewName="AddressVO1" viewAttr="AddressName" maximumLength="20" queryable="true" sortState="yes" selectiveSearchCriteria="true" userCustomizable="true"/>
+                        <oa:messageTextInput id="AddressLine1" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxAddresses/AddressLine1" dataType="VARCHAR2" viewName="AddressVO1" viewAttr="AddressLine1" maximumLength="60" queryable="true" userCustomizable="true"/>
+                        <oa:messageTextInput id="TownOrCity" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxAddresses/TownOrCity" dataType="VARCHAR2" viewName="AddressVO1" viewAttr="TownOrCity" maximumLength="30" queryable="true" sortState="yes" userCustomizable="true"/>
+                     </ui:contents>
+                  </oa:table>
+               </ui:contents>
+            </oa:query>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>
