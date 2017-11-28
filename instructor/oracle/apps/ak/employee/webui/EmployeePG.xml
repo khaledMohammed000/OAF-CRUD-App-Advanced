@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1305" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="PageLayoutRN" amDefName="instructor.oracle.apps.ak.employee.server.EmployeesAM" windowTitle="Instructor Query" title="Employees: Instructor">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:productBranding>
+            <oa:image id="ProdBrand" source="FNDTAPPBRAND.gif"/>
+         </ui:productBranding>
+         <ui:pageStatus>
+            <oa:flowLayout id="PageStatusRN">
+               <ui:contents>
+                  <oa:staticStyledText id="PageHelp" styleClass="OraInstructionText" messageAppShortName="AK" messageName="FWK_TBX_T_PAGE_GENERAL"/>
+               </ui:contents>
+            </oa:flowLayout>
+         </ui:pageStatus>
+         <ui:contents>
+            <oa:query id="QueryRN" mode="autoCustomizationCriteria" dispSimple="true" dispCustomized="true">
+               <ui:contents>
+                  <oa:table id="ResultsRN" shortDesc="Employees Table" width="100%" userCustomizable="true">
+                     <ui:contents>
+                        <oa:flowLayout id="PopUpRN" prompt="Employee Number">
+                           <ui:contents>
+                              <oa:popUp id="FirstLastPopUp" popupRegion="instructor/oracle/apps/ak/employee/webui/FirstLastNameRN" readOnly="true" popupTitle="First and Last Names of Employee" shortDesc="First and Last Names" height="100" width="220"/>
+                              <oa:messageStyledText id="EmployeeId" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/EmployeeId" dataType="NUMBER" viewName="AllEmployeesVO1" viewAttr="EmployeeId" queryable="true" sortState="ascending" initSortSeq="first" selectiveSearchCriteria="true" userCustomizable="true" popupId="FirstLastPopUp" popupRenderEvent="onHover" popupEnabled="true"/>
+                           </ui:contents>
+                        </oa:flowLayout>
+                        <oa:messageStyledText id="EmployeeName" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/FullName" dataType="VARCHAR2" viewName="AllEmployeesVO1" viewAttr="EmployeeName" maximumLength="240" queryable="true" selectiveSearchCriteria="true" userCustomizable="true" destination="OA.jsp?page=/instructor/oracle/apps/ak/employee/webui/EmpDetailsPG&amp;employeeNumber={@EmployeeId}&amp;employeeName={@EmployeeName}&amp;retainAM=N&amp;addBreadCrumb=Y"/>
+                        <oa:messageStyledText id="PositionDisplay" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/Position" dataType="VARCHAR2" viewName="AllEmployeesVO1" viewAttr="PositionDisplay" maximumLength="80" queryable="true" userCustomizable="true"/>
+                        <oa:messageStyledText id="ManagerName" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/FullName_Manager" dataType="VARCHAR2" viewName="AllEmployeesVO1" viewAttr="ManagerName" maximumLength="240" queryable="true" destination="mailto:{@ManagerEmail}" userCustomizable="true"/>
+                     </ui:contents>
+                  </oa:table>
+               </ui:contents>
+               <oa:simpleSearchPanel>
+                  <oa:header text="Simple Search" id="SimpleSearchRN">
+                     <ui:contents>
+                        <oa:messageComponentLayout id="CustomSimpleSearchRN">
+                           <ui:contents>
+                              <oa:messageLovInput id="SearchEmpName" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/FullName" selectiveSearchCriteria="true" maximumLength="240" styleClass="OraFieldText" externalListOfValues="/instructor/oracle/apps/ak/lov/webui/EmpNameLOVRN" lookAheadEnabled="true" lookAheadRecordsDisplayed="5" lookAheadMinChars="1" shortDesc="Employee Name">
+                                 <lovMappings>
+                                    <lovMap id="lovMap1" lovItem="EmployeeName" resultTo="SearchEmpName" criteriaFrom="SearchEmpName"/>
+                                    <lovMap id="lovMap2" lovItem="EmployeeNumber" resultTo="SearchEmpNum" criteriaFrom="SearchEmpNum"/>
+                                 </lovMappings>
+                              </oa:messageLovInput>
+                              <oa:messageTextInput id="SearchEmpNum" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/EmployeeId" selectiveSearchCriteria="true" dataType="NUMBER" maximumLength="15" styleClass="OraFieldText"/>
+                           </ui:contents>
+                        </oa:messageComponentLayout>
+                     </ui:contents>
+                  </oa:header>
+               </oa:simpleSearchPanel>
+               <oa:simpleSearchMappings>
+                  <oa:queryCriteriaMap id="EmpNameMap" criteriaItem="SearchEmpName" resultsItem="EmployeeName"/>
+                  <oa:queryCriteriaMap id="EmpNumMap" criteriaItem="SearchEmpNum" resultsItem="EmployeeId"/>
+               </oa:simpleSearchMappings>
+            </oa:query>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

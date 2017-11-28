@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:listOfValues version="10.1.3_1305" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" scope="/" advancedSearchAllowed="true" amDefName="instructor.oracle.apps.ak.lov.server.EmpNameLOVAM">
+   <ui:contents>
+      <oa:table name="EmpNameLOVRN" id="EmpNameResultsRN" shortDesc="Employee Name List of Values">
+         <ui:contents>
+            <oa:messageStyledText id="EmployeeName" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/FullName" dataType="VARCHAR2" viewName="EmpNameLOVVO1" viewAttr="EmployeeName" maximumLength="240" queryable="true" selectiveSearchCriteria="true" styleClass="OraFieldText"/>
+            <oa:messageStyledText id="EmployeeNumber" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/EmployeeId" dataType="NUMBER" viewName="EmpNameLOVVO1" viewAttr="EmployeeNumber" queryable="true" selectiveSearchCriteria="true" styleClass="OraFieldText"/>
+            <oa:messageStyledText id="EmailAddress" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/EmailAddress" dataType="VARCHAR2" viewName="EmpNameLOVVO1" viewAttr="EmailAddress" maximumLength="240" styleClass="OraFieldText"/>
+         </ui:contents>
+      </oa:table>
+   </ui:contents>
+</oa:listOfValues>

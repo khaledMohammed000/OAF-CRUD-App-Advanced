@@ -14,4 +14,14 @@
       FullName="instructor.oracle.apps.ak.schema.server.AddressEO"
       ObjectType="Entity" >
    </Containee>
+   <Containee
+      Name="EmployeeEO"
+      FullName="instructor.oracle.apps.ak.schema.server.EmployeeEO"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="EmpToMgrAO"
+      FullName="instructor.oracle.apps.ak.schema.server.EmpToMgrAO"
+      ObjectType="Association" >
+   </Containee>
 </JboPackage>

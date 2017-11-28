@@ -1,0 +1,31 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1305" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="PageLayoutRN" amDefName="instructor.oracle.apps.ak.employee.server.EmpDetailsAM" windowTitle="Instructor Drill Down Details" title="Instructor Employees Details" controllerClass="instructor.oracle.apps.ak.employee.webui.EmpDetailsCO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:productBranding>
+            <oa:image id="ProdBrand" source="FNDTAPPBRAND.gif" shortDesc="Employee Details Page"/>
+         </ui:productBranding>
+         <ui:contents>
+            <oa:messageComponentLayout id="MainRN">
+               <ui:contents>
+                  <oa:messageStyledText id="EmployeeId" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/EmployeeId_Number" dataType="NUMBER" viewName="EmployeeDetailsVO1" viewAttr="EmployeeId" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="FirstName" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/FirstName" dataType="VARCHAR2" viewName="EmployeeDetailsVO1" viewAttr="FirstName" maximumLength="20" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="LastName" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/LastName" dataType="VARCHAR2" viewName="EmployeeDetailsVO1" viewAttr="LastName" maximumLength="40" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="EmployeeEmail" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/EmailAddress" dataType="VARCHAR2" viewName="EmployeeDetailsVO1" viewAttr="EmployeeEmail" maximumLength="240" destination="mailto:{@EmployeeEmail}" styleClass="OraLinkText"/>
+                  <oa:messageStyledText id="PositionDisplay" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/Position" dataType="VARCHAR2" viewName="EmployeeDetailsVO1" viewAttr="PositionDisplay" maximumLength="80" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="ManagerName" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/FullName_Manager" dataType="VARCHAR2" viewName="EmployeeDetailsVO1" viewAttr="ManagerName" maximumLength="240" destination="mailto:{@ManagerEmail}" styleClass="OraLinkText"/>
+                  <oa:messageStyledText id="Salary" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/Salary" dataType="NUMBER" viewName="EmployeeDetailsVO1" viewAttr="Salary" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="StartDate" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/StartDate" dataType="DATE" viewName="EmployeeDetailsVO1" viewAttr="StartDate" styleClass="OraDataText"/>
+                  <oa:messageStyledText id="EndDate" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/EndDate" dataType="DATE" viewName="EmployeeDetailsVO1" viewAttr="EndDate" styleClass="OraDataText"/>
+               </ui:contents>
+            </oa:messageComponentLayout>
+         </ui:contents>
+         <ui:returnNavigation>
+            <oa:link id="ReturnLink" destination="OA.jsp?page=/instructor/oracle/apps/ak/employee/webui/EmployeePG" text="Return to the Employee Page"/>
+         </ui:returnNavigation>
+      </oa:pageLayout>
+   </content>
+</page>

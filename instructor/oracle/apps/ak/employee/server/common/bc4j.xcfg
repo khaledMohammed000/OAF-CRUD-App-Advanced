@@ -1,0 +1,33 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig>
+   <AppModuleConfigBag>
+      <AppModuleConfig name="EmployeesAMLocal">
+         <AppModuleJndiName>instructor.oracle.apps.ak.employee.server.EmployeesAM</AppModuleJndiName>
+         <DeployPlatform>LOCAL</DeployPlatform>
+         <JDBCName>VX0328</JDBCName>
+         <ApplicationName>instructor.oracle.apps.ak.employee.server.EmployeesAM</ApplicationName>
+         <jbo.project>ClassProject0</jbo.project>
+      </AppModuleConfig>
+      <AppModuleConfig name="EmpDetailsAMLocal">
+         <AppModuleJndiName>instructor.oracle.apps.ak.employee.server.EmpDetailsAM</AppModuleJndiName>
+         <DeployPlatform>LOCAL</DeployPlatform>
+         <JDBCName>VX0328</JDBCName>
+         <ApplicationName>instructor.oracle.apps.ak.employee.server.EmpDetailsAM</ApplicationName>
+         <jbo.project>ClassProject0</jbo.project>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <ConnectionDefinition name="VX0328">
+      <ENTRY name="JDBC_PORT" value="1521"/>
+      <ENTRY name="ConnectionType" value="JDBC"/>
+      <ENTRY name="HOSTNAME" value="vx0328.us.oracle.com"/>
+      <ENTRY name="user" value="apps"/>
+      <ENTRY name="ConnectionName" value="VX0328"/>
+      <ENTRY name="SID" value="VX0328"/>
+      <ENTRY name="JdbcDriver" value="oracle.jdbc.OracleDriver"/>
+      <ENTRY name="password">
+         <![CDATA[{904}0581A18953372B0D542780BB2AFB776104]]>
+      </ENTRY>
+      <ENTRY name="ORACLE_JDBC_TYPE" value="thin"/>
+      <ENTRY name="DeployPassword" value="true"/>
+   </ConnectionDefinition>
+</BC4JConfig>

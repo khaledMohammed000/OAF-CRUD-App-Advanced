@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<JboPackage
+   Name="server"
+   SeparateXMLFiles="true"
+   PackageName="instructor.oracle.apps.ak.employee.server" >
+   <DesignTime>
+      <Attr Name="_ejbPackage" Value="false" />
+      <Attr Name="_version" Value="10.1.3.41.57" />
+   </DesignTime>
+   <Containee
+      Name="AllEmployeesVO"
+      FullName="instructor.oracle.apps.ak.employee.server.AllEmployeesVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="EmpDetailsAM"
+      FullName="instructor.oracle.apps.ak.employee.server.EmpDetailsAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="EmployeeDetailsVO"
+      FullName="instructor.oracle.apps.ak.employee.server.EmployeeDetailsVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="EmployeesAM"
+      FullName="instructor.oracle.apps.ak.employee.server.EmployeesAM"
+      ObjectType="AppModule" >
+   </Containee>
+</JboPackage>
