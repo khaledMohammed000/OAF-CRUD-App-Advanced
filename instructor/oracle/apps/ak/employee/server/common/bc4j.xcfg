@@ -15,6 +15,13 @@
          <ApplicationName>instructor.oracle.apps.ak.employee.server.EmpDetailsAM</ApplicationName>
          <jbo.project>ClassProject0</jbo.project>
       </AppModuleConfig>
+      <AppModuleConfig name="EmpCreateAMLocal">
+         <AppModuleJndiName>instructor.oracle.apps.ak.employee.server.EmpCreateAM</AppModuleJndiName>
+         <DeployPlatform>LOCAL</DeployPlatform>
+         <JDBCName>VX0328</JDBCName>
+         <ApplicationName>instructor.oracle.apps.ak.employee.server.EmpCreateAM</ApplicationName>
+         <jbo.project>ClassProject0</jbo.project>
+      </AppModuleConfig>
    </AppModuleConfigBag>
    <ConnectionDefinition name="VX0328">
       <ENTRY name="JDBC_PORT" value="1521"/>
@@ -25,7 +32,7 @@
       <ENTRY name="SID" value="VX0328"/>
       <ENTRY name="JdbcDriver" value="oracle.jdbc.OracleDriver"/>
       <ENTRY name="password">
-         <![CDATA[{904}0581A18953372B0D542780BB2AFB776104]]>
+         <![CDATA[{904}0525344383A09953857B4E189CAFE7A68A]]>
       </ENTRY>
       <ENTRY name="ORACLE_JDBC_TYPE" value="thin"/>
       <ENTRY name="DeployPassword" value="true"/>

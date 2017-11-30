@@ -15,6 +15,16 @@
       ObjectType="ViewObject" >
    </Containee>
    <Containee
+      Name="EmpCreateAM"
+      FullName="instructor.oracle.apps.ak.employee.server.EmpCreateAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="EmpCreatePVO"
+      FullName="instructor.oracle.apps.ak.employee.server.EmpCreatePVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
       Name="EmpDetailsAM"
       FullName="instructor.oracle.apps.ak.employee.server.EmpDetailsAM"
       ObjectType="AppModule" >

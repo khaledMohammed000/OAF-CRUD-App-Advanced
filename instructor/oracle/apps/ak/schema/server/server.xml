@@ -20,8 +20,23 @@
       ObjectType="Entity" >
    </Containee>
    <Containee
+      Name="EmployeeVAM"
+      FullName="instructor.oracle.apps.ak.schema.server.EmployeeVAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="EmployeeVVO"
+      FullName="instructor.oracle.apps.ak.schema.server.EmployeeVVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
       Name="EmpToMgrAO"
       FullName="instructor.oracle.apps.ak.schema.server.EmpToMgrAO"
       ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="PositionVVO"
+      FullName="instructor.oracle.apps.ak.schema.server.PositionVVO"
+      ObjectType="ViewObject" >
    </Containee>
 </JboPackage>

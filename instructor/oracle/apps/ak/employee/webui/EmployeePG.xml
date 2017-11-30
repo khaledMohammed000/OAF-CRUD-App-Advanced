@@ -18,7 +18,7 @@
          <ui:contents>
             <oa:query id="QueryRN" mode="autoCustomizationCriteria" dispSimple="true" dispCustomized="true">
                <ui:contents>
-                  <oa:table id="ResultsRN" shortDesc="Employees Table" width="100%" userCustomizable="true">
+                  <oa:table id="ResultsRN" shortDesc="Employees Table" width="100%" userCustomizable="true" controllerClass="instructor.oracle.apps.ak.employee.webui.EmpResultsCO">
                      <ui:contents>
                         <oa:flowLayout id="PopUpRN" prompt="Employee Number">
                            <ui:contents>
@@ -30,6 +30,13 @@
                         <oa:messageStyledText id="PositionDisplay" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/Position" dataType="VARCHAR2" viewName="AllEmployeesVO1" viewAttr="PositionDisplay" maximumLength="80" queryable="true" userCustomizable="true"/>
                         <oa:messageStyledText id="ManagerName" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/FullName_Manager" dataType="VARCHAR2" viewName="AllEmployeesVO1" viewAttr="ManagerName" maximumLength="240" queryable="true" destination="mailto:{@ManagerEmail}" userCustomizable="true"/>
                      </ui:contents>
+                     <ui:tableActions>
+                        <oa:flowLayout id="ButtonLayout">
+                           <ui:contents>
+                              <oa:submitButton id="Create" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/CreateEmployee"/>
+                           </ui:contents>
+                        </oa:flowLayout>
+                     </ui:tableActions>
                   </oa:table>
                </ui:contents>
                <oa:simpleSearchPanel>
