@@ -11,15 +11,19 @@
    <SQLQuery><![CDATA[
 SELECT EmployeeEO.EMPLOYEE_ID,
        EmployeeEO.FIRST_NAME,
-       EmployeeEO.LAST_NAME, 
+       EmployeeEO.LAST_NAME,
        EmployeeEO.FULL_NAME AS EMPLOYEE_NAME, 
-       EmployeeEO.EMAIL_ADDRESS AS EMPLOYEE_EMAIL, 
+       EmployeeEO.EMAIL_ADDRESS AS EMPLOYEE_EMAIL,
        EmployeeEO1.EMPLOYEE_ID AS MANAGER_ID, 
        EmployeeEO1.FULL_NAME AS MANAGER_NAME, 
        EmployeeEO1.EMAIL_ADDRESS AS MANAGER_EMAIL,
-FwkLookupCode.MEANING AS POSITION_DISPLAY
-FROM FWK_TBX_EMPLOYEES EmployeeEO, FWK_TBX_EMPLOYEES EmployeeEO1,
-FWK_TBX_LOOKUP_CODES_VL FwkLookupCode
+       FwkLookupCode.MEANING AS POSITION_DISPLAY,
+      decode(nvl(to_char(EmployeeEO.END_DATE), 'N'), 
+          'N', 'DeleteDisabled', 'DeleteEnabled') AS DELETE_SWITCHER,
+      decode(nvl(to_char(EmployeeEO.END_DATE), 'Y'), 
+          'Y', 'okind_status.gif', 'criticalind_status.gif') AS
+          EMPLOYEE_STATUS
+FROM FWK_TBX_EMPLOYEES EmployeeEO, FWK_TBX_EMPLOYEES EmployeeEO1, FWK_TBX_LOOKUP_CODES_VL FwkLookupCode
 WHERE EmployeeEO.MANAGER_ID = EmployeeEO1.EMPLOYEE_ID (+)
 AND EmployeeEO.POSITION_CODE = FwkLookupCode.LOOKUP_CODE
 AND FwkLookupCode.LOOKUP_TYPE = 'FWK_TBX_POSITIONS'
@@ -57,6 +61,7 @@ AND FwkLookupCode.LOOKUP_TYPE = 'FWK_TBX_POSITIONS'
    </EntityUsage>
    <ViewAttribute
       Name="EmployeeId"
+      IsUpdateable="while_insert"
       IsNotNull="true"
       EntityAttrName="EmployeeId"
       EntityUsage="EmployeeEO"
@@ -120,6 +125,32 @@ AND FwkLookupCode.LOOKUP_TYPE = 'FWK_TBX_POSITIONS'
       SQLType="VARCHAR" >
       <DesignTime>
          <Attr Name="_DisplaySize" Value="80" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DeleteSwitcher"
+      IsPersistent="false"
+      Precision="14"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DELETE_SWITCHER"
+      Expression="DELETE_SWITCHER"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="14" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="EmployeeStatus"
+      IsPersistent="false"
+      Precision="22"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="EMPLOYEE_STATUS"
+      Expression="EMPLOYEE_STATUS"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
       </DesignTime>
    </ViewAttribute>
 </ViewObject>

@@ -21,6 +21,8 @@ public class AllEmployeesVORowImpl extends OAViewRowImpl {
     public static final int MANAGERNAME = 6;
     public static final int MANAGEREMAIL = 7;
     public static final int POSITIONDISPLAY = 8;
+    public static final int DELETESWITCHER = 9;
+    public static final int EMPLOYEESTATUS = 10;
 
     /**This is the default constructor (do not remove)
      */
@@ -128,6 +130,10 @@ public class AllEmployeesVORowImpl extends OAViewRowImpl {
             return getManagerEmail();
         case POSITIONDISPLAY:
             return getPositionDisplay();
+        case DELETESWITCHER:
+            return getDeleteSwitcher();
+        case EMPLOYEESTATUS:
+            return getEmployeeStatus();
         default:
             return super.getAttrInvokeAccessor(index, attrDef);
         }
@@ -155,6 +161,12 @@ public class AllEmployeesVORowImpl extends OAViewRowImpl {
             return;
         case POSITIONDISPLAY:
             setPositionDisplay((String)value);
+            return;
+        case DELETESWITCHER:
+            setDeleteSwitcher((String)value);
+            return;
+        case EMPLOYEESTATUS:
+            setEmployeeStatus((String)value);
             return;
         default:
             super.setAttrInvokeAccessor(index, value, attrDef);
@@ -184,5 +196,29 @@ public class AllEmployeesVORowImpl extends OAViewRowImpl {
      */
     public void setLastName(String value) {
         setAttributeInternal(LASTNAME, value);
+    }
+
+    /**Gets the attribute value for the calculated attribute DeleteSwitcher
+     */
+    public String getDeleteSwitcher() {
+        return (String) getAttributeInternal(DELETESWITCHER);
+    }
+
+    /**Sets <code>value</code> as the attribute value for the calculated attribute DeleteSwitcher
+     */
+    public void setDeleteSwitcher(String value) {
+        setAttributeInternal(DELETESWITCHER, value);
+    }
+
+    /**Gets the attribute value for the calculated attribute EmployeeStatus
+     */
+    public String getEmployeeStatus() {
+        return (String) getAttributeInternal(EMPLOYEESTATUS);
+    }
+
+    /**Sets <code>value</code> as the attribute value for the calculated attribute EmployeeStatus
+     */
+    public void setEmployeeStatus(String value) {
+        setAttributeInternal(EMPLOYEESTATUS, value);
     }
 }

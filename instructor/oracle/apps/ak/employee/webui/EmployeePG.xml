@@ -29,6 +29,24 @@
                         <oa:messageStyledText id="EmployeeName" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/FullName" dataType="VARCHAR2" viewName="AllEmployeesVO1" viewAttr="EmployeeName" maximumLength="240" queryable="true" selectiveSearchCriteria="true" userCustomizable="true" destination="OA.jsp?page=/instructor/oracle/apps/ak/employee/webui/EmpDetailsPG&amp;employeeNumber={@EmployeeId}&amp;employeeName={@EmployeeName}&amp;retainAM=N&amp;addBreadCrumb=Y"/>
                         <oa:messageStyledText id="PositionDisplay" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/Position" dataType="VARCHAR2" viewName="AllEmployeesVO1" viewAttr="PositionDisplay" maximumLength="80" queryable="true" userCustomizable="true"/>
                         <oa:messageStyledText id="ManagerName" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/FullName_Manager" dataType="VARCHAR2" viewName="AllEmployeesVO1" viewAttr="ManagerName" maximumLength="240" queryable="true" destination="mailto:{@ManagerEmail}" userCustomizable="true"/>
+                        <oa:switcher id="DeleteSwitcherRN" use="/oracle/apps/fnd/attributesets/Buttons/Delete" viewName="AllEmployeesVO1" viewAttr="DeleteSwitcher">
+                           <ui:case name="DeleteDisabled">
+                              <oa:image id="DeleteDisabled" source="deleteicon_disabled.gif" shortDesc="Delete employee action is disabled" imageHeight="24" imageWidth="24"/>
+                           </ui:case>
+                           <ui:case name="DeleteEnabled">
+                              <oa:image id="DeleteEnabled" source="deleteicon_enabled.gif" shortDesc="Delete employee action is enabled" imageHeight="24" imageWidth="24">
+                                 <ui:primaryClientAction>
+                                    <ui:fireAction event="delete">
+                                       <ui:parameters>
+                                          <ui:parameter key="empNum" value="${oa.AllEmployeesVO1.EmployeeId}"/>
+                                          <ui:parameter key="empName" value="${oa.AllEmployeesVO1.EmployeeName}"/>
+                                       </ui:parameters>
+                                    </ui:fireAction>
+                                 </ui:primaryClientAction>
+                              </oa:image>
+                           </ui:case>
+                        </oa:switcher>
+                        <oa:image id="EmpStatus" viewName="AllEmployeesVO1" viewAttr="EmployeeStatus" prompt="Status" shortDesc="Current Employment Status" imageHeight="16" imageWidth="16"/>
                      </ui:contents>
                      <ui:tableActions>
                         <oa:flowLayout id="ButtonLayout">
