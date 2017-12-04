@@ -16,4 +16,8 @@
       Name="EmployeeDetailsVO1"
       ViewObjectName="instructor.oracle.apps.ak.employee.server.EmployeeDetailsVO" >
    </ViewUsage>
+   <ViewUsage
+      Name="EmpDetailsPVO1"
+      ViewObjectName="instructor.oracle.apps.ak.employee.server.EmpDetailsPVO" >
+   </ViewUsage>
 </AppModule>

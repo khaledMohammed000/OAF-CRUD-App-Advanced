@@ -1,0 +1,34 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1305" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="PagLayoutRN" amDefName="instructor.oracle.apps.ak.employee.server.EmpCreateAM" warnAboutChanges="true" windowTitle="Instructor Update Details" title="Update Employee: Details Instructor" controllerClass="instructor.oracle.apps.ak.employee.webui.UpdateEmpDetailsCO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:productBranding>
+            <oa:image id="ProdBrand" source="FNDTAPPBRAND.gif" shortDesc="Employee Create Page"/>
+         </ui:productBranding>
+         <ui:contents>
+            <oa:messageComponentLayout id="MainRN">
+               <ui:contents>
+                  <oa:messageStyledText id="EmployeeId" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/EmployeeId_Number" dataType="NUMBER" viewName="EmployeeDetailsVO1" viewAttr="EmployeeId" styleClass="OraDataText"/>
+                  <oa:messageTextInput id="FirstName" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/FirstName" dataType="VARCHAR2" viewName="EmployeeDetailsVO1" viewAttr="FirstName" maximumLength="20" styleClass="OraFieldText" required="yes"/>
+                  <oa:messageTextInput id="LastName" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/LastName" dataType="VARCHAR2" viewName="EmployeeDetailsVO1" viewAttr="LastName" maximumLength="40" required="yes" styleClass="OraFieldText"/>
+                  <oa:messageTextInput id="EmployeeEmail" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/EmailAddress" dataType="VARCHAR2" viewName="EmployeeDetailsVO1" viewAttr="EmployeeEmail" maximumLength="240" styleClass="OraFieldText"/>
+               </ui:contents>
+            </oa:messageComponentLayout>
+            <oa:pageButtonBar id="PageButtonBarRN" extends="/instructor/oracle/apps/ak/employee/webui/UpdateEmpTrainFooterRN"/>
+         </ui:contents>
+         <ui:pageStatus>
+            <oa:flowLayout id="PageStatusRN">
+               <ui:contents>
+                  <oa:tableLayout id="RequiredKey" extends="/oracle/apps/fnd/framework/webui/OAReqFieldDescRG" hAlign="center"/>
+               </ui:contents>
+            </oa:flowLayout>
+         </ui:pageStatus>
+         <ui:location>
+            <oa:train id="TrainRN" extends="/instructor/oracle/apps/ak/employee/webui/UpdateEmpTrainRN"/>
+         </ui:location>
+      </oa:pageLayout>
+   </content>
+</page>

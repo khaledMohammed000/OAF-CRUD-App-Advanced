@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:pageButtonBar version="10.1.3_1305" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" controllerClass="instructor.oracle.apps.ak.employee.webui.UpdateEmpTrainFooterCO">
+   <ui:contents>
+      <oa:submitButton id="Cancel" use="/oracle/apps/fnd/attributesets/Buttons/Cancel" serverUnvalidated="true" unvalidated="true"/>
+      <oa:navigationBar id="NavBar" maxValue="3">
+         <ui:contents>
+            <oa:link id="Step1Link" destination="OA.jsp?page=/instructor/oracle/apps/ak/employee/webui/UpdateEmpDetailsPG" warnAboutChanges="false" text="Step 1 of 3: Details"/>
+            <oa:link id="Step2Link" destination="OA.jsp?page=/instructor/oracle/apps/ak/employee/webui/UpdateEmpAssignPG" warnAboutChanges="false" text="Step 2 of 3: Assignment"/>
+            <oa:link id="Step3Link" destination="OA.jsp?page=/instructor/oracle/apps/ak/employee/webui/UpdateEmpReviewPG" warnAboutChanges="false" text="Step 3 of 3: Review"/>
+         </ui:contents>
+      </oa:navigationBar>
+      <oa:submitButton id="Submit" use="/oracle/apps/fnd/attributesets/Buttons/Submit"/>
+   </ui:contents>
+</oa:pageButtonBar>

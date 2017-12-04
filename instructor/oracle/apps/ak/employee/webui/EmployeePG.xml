@@ -47,6 +47,16 @@
                            </ui:case>
                         </oa:switcher>
                         <oa:image id="EmpStatus" viewName="AllEmployeesVO1" viewAttr="EmployeeStatus" prompt="Status" shortDesc="Current Employment Status" imageHeight="16" imageWidth="16"/>
+                        <oa:image id="UpdateImage" use="/oracle/apps/fnd/attributesets/Buttons/Update" source="updateicon_enabled.gif" shortDesc="Select to Update Employee" imageHeight="24" imageWidth="24">
+                           <ui:primaryClientAction>
+                              <ui:fireAction>
+                                 <ui:parameters>
+                                    <ui:parameter key="empNum" value="${oa.AllEmployeesVO1.EmployeeId}"/>
+                                    <ui:parameter key="empName" value="${oa.AllEmployeesVO1.EmployeeName}"/>
+                                 </ui:parameters>
+                              </ui:fireAction>
+                           </ui:primaryClientAction>
+                        </oa:image>
                      </ui:contents>
                      <ui:tableActions>
                         <oa:flowLayout id="ButtonLayout">

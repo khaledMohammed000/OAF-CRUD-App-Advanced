@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:train version="10.1.3_1305" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" formSubmitted="true">
+   <ui:contents>
+      <oa:link id="TrainStep1" destination="OA.jsp?page=/instructor/oracle/apps/ak/employee/webui/UpdateEmpDetailsPG" text="Step 1"/>
+      <oa:link id="TrainStep2" destination="OA.jsp?page=/instructor/oracle/apps/ak/employee/webui/UpdateEmpAssignPG" text="Step 2"/>
+      <oa:link id="TrainStep3" destination="OA.jsp?page=/instructor/oracle/apps/ak/employee/webui/UpdateEmpReviewPG" text="Step 3"/>
+   </ui:contents>
+</oa:train>

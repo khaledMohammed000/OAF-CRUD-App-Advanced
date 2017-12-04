@@ -153,87 +153,97 @@ public class EmpResultsCO extends OAControllerImpl {
                                       OAWebBeanConstants.IGNORE_MESSAGES);
 
         }
-        
+
         if ("delete".equals(pageContext.getParameter(EVENT_PARAM))) {
-                // The user has clicked a delete icon so display a Warning
-                // dialog asking to confirm deleting the employee. Note you 
-                // configure the dialog so the "Yes" button submits to 
-                // this page so you handle the action in processFormRequest()
+            // The user has clicked a delete icon so display a Warning
+            // dialog asking to confirm deleting the employee. Note you
+            // configure the dialog so the "Yes" button submits to
+            // this page so you handle the action in processFormRequest()
 
-                String employeeNumber = pageContext.getParameter("empNum");
-                String employeeName = pageContext.getParameter("empName");
+            String employeeNumber = pageContext.getParameter("empNum");
+            String employeeName = pageContext.getParameter("empName");
 
-                MessageToken[] tokens = 
-                { new MessageToken("EMP_NAME", employeeName) };
-                OAException mainMessage = 
-                    new OAException("AK", "FWK_TBX_T_EMP_DELETE_WARN", tokens);
+            MessageToken[] tokens =
+            { new MessageToken("EMP_NAME", employeeName) };
+            OAException mainMessage =
+                new OAException("AK", "FWK_TBX_T_EMP_DELETE_WARN", tokens);
 
-                // Note even though you're going to make your Yes/No buttons
-                // submit a form, you still need some non-null value in the
-                // constructor's Yes/No URL parameters for the buttons to render,
-                // so just pass empty Strings for this.
-                OADialogPage dialogPage = 
-                    new OADialogPage(OAException.WARNING, mainMessage, null, "", 
-                                     "");
+            // Note even though you're going to make your Yes/No buttons
+            // submit a form, you still need some non-null value in the
+            // constructor's Yes/No URL parameters for the buttons to render,
+            // so just pass empty Strings for this.
+            OADialogPage dialogPage =
+                new OADialogPage(OAException.WARNING, mainMessage, null, "",
+                                 "");
 
-                // Always use Message Dictionary for any Strings you want
-                // to display.
-                String yes = pageContext.getMessage("AK", "FWK_TBX_T_YES", null);
-                String no = pageContext.getMessage("AK", "FWK_TBX_T_NO", null);
+            // Always use Message Dictionary for any Strings you want
+            // to display.
+            String yes = pageContext.getMessage("AK", "FWK_TBX_T_YES", null);
+            String no = pageContext.getMessage("AK", "FWK_TBX_T_NO", null);
 
-                // Set this value so the code that handles this button press
-                // is descriptive.
-                dialogPage.setOkButtonItemName("DeleteYesButton");
+            // Set this value so the code that handles this button press
+            // is descriptive.
+            dialogPage.setOkButtonItemName("DeleteYesButton");
 
-                // The following configures the Yes/No buttons to be submit
-                // buttons, and handles the form submit in the originating
-                // page (EmployeesPG) so you can handle the "Yes" button selection
-                // in this controller.
-                dialogPage.setOkButtonToPost(true);
-                dialogPage.setNoButtonToPost(true);
-                dialogPage.setPostToCallingPage(true);
+            // The following configures the Yes/No buttons to be submit
+            // buttons, and handles the form submit in the originating
+            // page (EmployeesPG) so you can handle the "Yes" button selection
+            // in this controller.
+            dialogPage.setOkButtonToPost(true);
+            dialogPage.setNoButtonToPost(true);
+            dialogPage.setPostToCallingPage(true);
 
-                // Set your Yes/No labels instead of the default OK/Cancel.
-                dialogPage.setOkButtonLabel(yes);
-                dialogPage.setNoButtonLabel(no);
+            // Set your Yes/No labels instead of the default OK/Cancel.
+            dialogPage.setOkButtonLabel(yes);
+            dialogPage.setNoButtonLabel(no);
 
-                // You need to keep hold of the employeeNumber and employeeName.
-                // The OADialogPage gives us a convenient means 
-                // of doing this. Note that the use of the Hashtable is  
-                // most appropriate for passing multiple parameters. See the
-                // OADialogPage javadoc for an alternative when dealing with
-                // a single parameter.
-                java.util.Hashtable formParams = new java.util.Hashtable(1);
-                formParams.put("empNum", employeeNumber);
-                formParams.put("empName", employeeName);
-                dialogPage.setFormParameters(formParams);
+            // You need to keep hold of the employeeNumber and employeeName.
+            // The OADialogPage gives us a convenient means
+            // of doing this. Note that the use of the Hashtable is
+            // most appropriate for passing multiple parameters. See the
+            // OADialogPage javadoc for an alternative when dealing with
+            // a single parameter.
+            java.util.Hashtable formParams = new java.util.Hashtable(1);
+            formParams.put("empNum", employeeNumber);
+            formParams.put("empName", employeeName);
+            dialogPage.setFormParameters(formParams);
 
-                pageContext.redirectToDialogPage(dialogPage);
-            } else if (pageContext.getParameter("DeleteYesButton") != null) {
+            pageContext.redirectToDialogPage(dialogPage);
+        } else if (pageContext.getParameter("DeleteYesButton") != null) {
 
-                // User has confirmed that they want to delete this
-                // employee. Invoke a method on the AM to set the current
-                // row in the VO and call remove() on this row. 
-                String employeeNumber = pageContext.getParameter("empNum");
-                String employeeName = pageContext.getParameter("empName");
-                Serializable[] parameters = { employeeNumber };
-                OAApplicationModule am = pageContext.getApplicationModule(webBean);
-                am.invokeMethod("deleteEmployee", parameters);
+            // User has confirmed that they want to delete this
+            // employee. Invoke a method on the AM to set the current
+            // row in the VO and call remove() on this row.
+            String employeeNumber = pageContext.getParameter("empNum");
+            String employeeName = pageContext.getParameter("empName");
+            Serializable[] parameters = { employeeNumber };
+            OAApplicationModule am = pageContext.getApplicationModule(webBean);
+            am.invokeMethod("deleteEmployee", parameters);
 
-                // Now, redisplay the page with a confirmation message at
-                // the top. Note that the deleteEmployee() method in the AM
-                // commits, and our code won't get this far if any exceptions
-                // are thrown.
+            // Now, redisplay the page with a confirmation message at
+            // the top. Note that the deleteEmployee() method in the AM
+            // commits, and our code won't get this far if any exceptions
+            // are thrown.
 
-                MessageToken[] tokens = 
-                { new MessageToken("EMP_NAME", employeeName) };
-                OAException message = 
-                    new OAException("AK", "FWK_TBX_T_EMP_DELETE_CONFIRM", tokens, 
-                                    OAException.CONFIRMATION, null);
-                pageContext.putDialogMessage(message);
-            }
-        
-        
+            MessageToken[] tokens =
+            { new MessageToken("EMP_NAME", employeeName) };
+            OAException message =
+                new OAException("AK", "FWK_TBX_T_EMP_DELETE_CONFIRM", tokens,
+                                OAException.CONFIRMATION, null);
+            pageContext.putDialogMessage(message);
+        } else if ("update".equals(pageContext.getParameter(EVENT_PARAM))) {
+            // The user has clicked an update icon so you want to navigate
+            // to the Update page. Later, you will change the single-page
+            // update to a multi-page flow.
+            pageContext.setForwardURL("OA.jsp?page=/instructor/oracle/apps/ak/employee/webui/UpdateEmpDetailsPG",
+                                      null,
+                                      OAWebBeanConstants.KEEP_MENU_CONTEXT,
+                                      null, null, false,
+                                      OAWebBeanConstants.ADD_BREAD_CRUMB_NO,
+                                      OAWebBeanConstants.IGNORE_MESSAGES);
+        }
+
+
     }
 
 }

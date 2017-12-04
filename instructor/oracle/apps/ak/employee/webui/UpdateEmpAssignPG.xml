@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1305" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="PagLayoutRN" amDefName="instructor.oracle.apps.ak.employee.server.EmpCreateAM" warnAboutChanges="true" windowTitle="Instructor Update Assignment" title="Update Employee: Instructor" controllerClass="instructor.oracle.apps.ak.employee.webui.UpdateEmpAssignCO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:productBranding>
+            <oa:image id="ProdBrand" source="FNDTAPPBRAND.gif" shortDesc="Employee Create Page"/>
+         </ui:productBranding>
+         <ui:contents>
+            <oa:messageComponentLayout id="MainRN">
+               <ui:contents>
+                  <oa:messageChoice id="PositionCode" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/Position" dataType="VARCHAR2" viewName="EmployeeDetailsVO1" viewAttr="PositionCode" styleClass="OraFieldText" required="yes" pickListViewDef="instructor.oracle.apps.ak.poplist.server.PositionsVO" pickListDispAttr="Meaning" pickListValAttr="LookupCode" serverUnvalidated="true">
+                     <ui:primaryClientAction>
+                        <ui:firePartialAction unvalidated="true" event="positionChange"/>
+                     </ui:primaryClientAction>
+                  </oa:messageChoice>
+                  <oa:messageLovInput id="ManagerName" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/FullName_Manager" dataType="VARCHAR2" viewName="EmployeeDetailsVO1" viewAttr="ManagerName" maximumLength="240" externalListOfValues="/instructor/oracle/apps/ak/lov/webui/EmpNameLOVRN" styleClass="OraFieldText" rendered="${oa.EmpCreatePVO1.ManagerRendered}">
+                     <lovMappings>
+                        <lovMap id="lovMap1" lovItem="EmployeeName" resultTo="ManagerName" criteriaFrom="ManagerName"/>
+                        <lovMap id="lovMap2" lovItem="EmployeeNumber" resultTo="ManagerId" criteriaFrom="ManagerId"/>
+                     </lovMappings>
+                  </oa:messageLovInput>
+                  <oa:messageTextInput id="Salary" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/Salary" dataType="NUMBER" viewName="EmployeeDetailsVO1" viewAttr="Salary" required="yes" translatableDefaultValue="68320" styleClass="OraFieldText"/>
+                  <oa:messageTextInput id="StartDate" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/StartDate" dataType="DATE" viewName="EmployeeDetailsVO1" viewAttr="StartDate" required="yes" styleClass="OraFieldText" tipType="dateFormat"/>
+                  <oa:messageTextInput id="EndDate" use="/oracle/apps/fnd/framework/toolbox/attributesets/FwkTbxEmployees/EndDate" dataType="DATE" viewName="EmployeeDetailsVO1" viewAttr="EndDate" styleClass="OraFieldText" tipType="dateFormat"/>
+                  <oa:messageLayout id="ManagerIdLayout">
+                     <ui:contents>
+                        <oa:formValue id="ManagerId" dataType="NUMBER" prompt="ManagerId" viewName="EmployeeDetailsVO1" viewAttr="ManagerId"/>
+                     </ui:contents>
+                  </oa:messageLayout>
+               </ui:contents>
+            </oa:messageComponentLayout>
+            <oa:pageButtonBar id="PageButtonBar" extends="/instructor/oracle/apps/ak/employee/webui/UpdateEmpTrainFooterRN"/>
+         </ui:contents>
+         <ui:pageStatus>
+            <oa:flowLayout id="PageStatusRN">
+               <ui:contents>
+                  <oa:tableLayout id="RequiredKey" extends="/oracle/apps/fnd/framework/webui/OAReqFieldDescRG" hAlign="center"/>
+               </ui:contents>
+            </oa:flowLayout>
+         </ui:pageStatus>
+         <ui:location>
+            <oa:train id="TrainRN" extends="/instructor/oracle/apps/ak/employee/webui/UpdateEmpTrainRN"/>
+         </ui:location>
+      </oa:pageLayout>
+   </content>
+</page>

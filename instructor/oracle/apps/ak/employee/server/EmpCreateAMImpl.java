@@ -1,5 +1,7 @@
 package instructor.oracle.apps.ak.employee.server;
 
+import oracle.apps.fnd.common.MessageToken;
+import oracle.apps.fnd.framework.OAException;
 import oracle.apps.fnd.framework.server.OAApplicationModuleImpl;
 import oracle.apps.fnd.framework.server.OAViewObjectImpl;
 
@@ -138,5 +140,16 @@ public class EmpCreateAMImpl extends OAApplicationModuleImpl {
         // object.
         handlePositionChangeEvent();
     } // end init()
+    
+    //Added the following method for the EmpUpdatePG
+     public void initDetails(String employeeNumber) {
+         EmployeeDetailsVOImpl vo = getEmployeeDetailsVO1();
+         if (vo == null) {
+             MessageToken[] errTokens =
+             { new MessageToken("OBJECT_NAME", "EmployeeDetailsVO1") };
+             throw new OAException("AK", "FWK_TBX_OBJECT_NOT_FOUND", errTokens);
+         }
+         vo.initQuery(employeeNumber);
+     } // end initDetails()
 
 }
