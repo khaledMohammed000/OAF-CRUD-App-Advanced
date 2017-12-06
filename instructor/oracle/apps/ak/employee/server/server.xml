@@ -30,11 +30,6 @@
       ObjectType="AppModule" >
    </Containee>
    <Containee
-      Name="EmpDetailsPVO"
-      FullName="instructor.oracle.apps.ak.employee.server.EmpDetailsPVO"
-      ObjectType="ViewObject" >
-   </Containee>
-   <Containee
       Name="EmployeeDetailsVO"
       FullName="instructor.oracle.apps.ak.employee.server.EmployeeDetailsVO"
       ObjectType="ViewObject" >
